@@ -3,6 +3,8 @@
 <%elsif current_user.buyer? %>
     <%= link_to "Cart |", carts_path, local: true, :method => :get %>
     <%= link_to "Favourites", favourites_path, local: true, :method => :get %>
+  <%elsif current_user.admin? %>
+    <%= link_to "Users", users_path, local: true, :method => :get %>
 <%end%>
 
 <table class="table">

@@ -34,11 +34,11 @@
       </div>
 
       <%= f.label :type, "Seller", :value => "seller"  %>
-      <%= f.radio_button :type, "seller",:checked => true %><br>
+      <%= f.radio_button :type, "seller",:checked => current_user.seller? ? true : false %><br>
       <%= f.label :type, "Buyer", :value => "buyer" %>
-      <%= f.radio_button :type, "buyer", :checked => false %><br>
+      <%= f.radio_button :type, "buyer", :checked => current_user.buyer? ? true :false %><br>
       <%= f.label :type, "Admin", :value => "admin" %>
-      <%= f.radio_button :type, "admin", :checked => false %><br>
+      <%= f.radio_button :type, "admin", :checked => current_user.admin? ? true :false %><br>
 
       <div class="fadeIn fourth">
         <%= f.submit "Update" %>
