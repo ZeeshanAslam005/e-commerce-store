@@ -4,4 +4,6 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+  User.find_or_create_by(email: 'admin@mail.com', type: "Admin").update(password: "123456")
+  User.find_or_create_by(email: 'seller@mail.com', type: "Seller").update(password: "123456")
+  User.find_or_create_by(email: 'buyer@mail.com', type: "Buyer").update(password: "123456")

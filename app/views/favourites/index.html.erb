@@ -1,0 +1,17 @@
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Sku</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @favourites.each do |favourite|%>
+    <tr>
+        <td><a href="<%= product_path(favourite.product.id)%>"><%= favourite.product.name%></a></td>
+        <td><%= favourite.product.sku%></td>
+        </tr>
+    <%end%>
+
+  </tbody>
+</table>

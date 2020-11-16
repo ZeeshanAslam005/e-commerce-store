@@ -1,0 +1,32 @@
+<%if current_user.seller? %>
+    <a href="<%= new_product_path%>">Add new product</a>
+    <a href="<%= edit_product_path%>">Edit product</a>
+<%elsif current_user.buyer? %>
+    <%= link_to "Cart |", carts_path, local: true, :method => :get %>
+    <%= link_to "Add to cart |", add_to_cart_path(@product.id), remote: true, :method => :post %>
+    
+    <%= link_to "Favourites |", favourites_path, local: true, :method => :get %>
+    <%= link_to "Add to favourites", add_to_favourite_path(@product.id), remote: true, :method => :post %>
+<%end%>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Sku</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>    
+        <tr>
+            <td><%= @product.name%></td>
+            <td><%= @product.sku%></td>
+            <td><%= @product.status%></td>
+        </tr>    
+  </tbody>
+</table>
+
+<h5>Attachments</h5>
+  <%@product.attachments.each do |attachment|%>
+    <%= attachment.original_filename%>
+<%end%>

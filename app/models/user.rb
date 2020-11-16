@@ -3,4 +3,18 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :products
+
+  def admin?
+    type == 'Admin'
+  end
+
+  def buyer?
+    type == 'Buyer'
+  end
+
+  def seller?
+    type == 'Seller'
+  end
+
 end

@@ -1,0 +1,17 @@
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Sku</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @carts.each do |cart|%>
+    <tr>
+        <td><a href="<%= product_path(cart.product.id)%>"><%= cart.product.name%></a></td>
+        <td><%= cart.product.sku%></td>
+        </tr>
+    <%end%>
+
+  </tbody>
+</table>

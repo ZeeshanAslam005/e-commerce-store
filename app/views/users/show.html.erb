@@ -1,0 +1,23 @@
+<table class="table admin-table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Sku</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@products&.each do |product|%>
+        <tr>
+        <td><%= product.name%></td>
+        <td><%= product.sku%></td>
+        <td><%= product.status%></td>
+        <td> <a href="<%= product_path(product.id)%>" target="_blank">View</a>
+        <%= link_to "Approve", approve_product_path(product.id), :method => :post %>
+        <%= link_to "Disapprove", disapprove_product_path(product.id), :method => :post %><td>
+        </tr>
+    <%end%>
+
+  </tbody>
+</table>
