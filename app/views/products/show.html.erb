@@ -29,4 +29,5 @@
 <h5>Attachments</h5>
   <%@product.attachments.each do |attachment|%>
     <%= attachment.original_filename%>
+    <%= image_tag(attachment.attachment_url, class: "image-width") %>
 <%end%>
