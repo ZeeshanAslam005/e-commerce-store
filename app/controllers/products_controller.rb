@@ -41,10 +41,12 @@ class ProductsController < ApplicationController
 
     def approve
         @product.update_attribute(:status, 'approve')
+        redirect_back fallback_location: products_path
     end
 
     def disapprove
         @product.update_attribute(:status, 'disapprove')
+        redirect_back fallback_location: products_path
     end
 
     private
