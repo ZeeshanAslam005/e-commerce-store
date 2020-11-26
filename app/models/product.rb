@@ -11,4 +11,5 @@ class Product < ApplicationRecord
     
     scope :approve, -> { where(status: "approve") }
     scope :disapprove, -> { where(status: "disapprove") }
+    validates_presence_of :name
 end
