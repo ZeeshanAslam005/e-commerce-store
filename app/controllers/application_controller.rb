@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     before_action :authenticate_user!
-
+    before_action :configure_permitted_parameter, if: :devise_controller?
 
   def after_sign_up_path_for(resource)
       redirect_to_associated_root(resource)
@@ -26,5 +26,13 @@ class ApplicationController < ActionController::Base
     else
         super
     end
+  end
+    protected
+ 
+  def configure_permitted_parameter
+    added_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+    devise_parameter_sanitizer.permit :accept_invitation, keys: [:email]
   end
 end

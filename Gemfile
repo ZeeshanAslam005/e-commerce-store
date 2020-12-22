@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
+gem 'devise_invitable', '~> 2.0.0'
 gem "nested_form"
 gem 'carrierwave', '~> 2.0'
 gem "mime-types"
@@ -35,6 +36,8 @@ gem "mime-types"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', ">= 3.9.0"
+  gem 'shoulda-matchers'
 end
 
 group :development do
