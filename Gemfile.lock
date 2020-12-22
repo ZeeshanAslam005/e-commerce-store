@@ -80,6 +80,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise_invitable (2.0.3)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
     diff-lcs (1.3)
     erubi (1.10.0)
     ffi (1.13.1)
@@ -236,6 +239,7 @@ DEPENDENCIES
   byebug
   carrierwave (~> 2.0)
   devise
+  devise_invitable (~> 2.0.0)
   jbuilder (~> 2.7)
   listen (~> 3.2)
   mime-types
